@@ -1,7 +1,7 @@
 {
     "pathwayTitle": "GKA: Intro to Red Hat OpenShift Application Runtimes",
     "icon": "fa-node",
-    "title": "Getting Started with Node.js on OpenShift",
+    "title": "GKA: Getting Started with Node.js on OpenShift v1.00",
     "description": "In this scenario you will learn more about Node.js, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
     "difficulty": "intermediate",
     "time": "20-30 minutes",
