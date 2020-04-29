@@ -32,9 +32,10 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal"
+    "uilayout": "editor-terminal"
   },
   "backend": {
-    "imageid": "kubernetes-cluster"
+    "imageid": "openshift-3-11",
+    "port": 8443
   }
 }
