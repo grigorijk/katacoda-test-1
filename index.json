@@ -1,5 +1,5 @@
 {
-    "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
+    "pathwayTitle": "GKA: Intro to Red Hat OpenShift Application Runtimes",
     "icon": "fa-node",
     "title": "Getting Started with Node.js on OpenShift",
     "description": "In this scenario you will learn more about Node.js, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
@@ -55,14 +55,12 @@
     "environment": {
         "uilayout": "editor-terminal",
         "uisettings": "javascript",
-        "uieditorpath": "/root/projects/rhoar-getting-started/nodejs",
         "showdashboard": true,
         "hideintro": false,
         "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}, {"name": "Sample Application", "port": 80}],
         "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
     },
     "backend": {
-        "imageid": "kubernetes",
-        "port": 8443
+        "imageid": "kubernetes"
     }
 }
