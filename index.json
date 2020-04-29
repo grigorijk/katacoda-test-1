@@ -41,8 +41,8 @@
             }
         ],
         "intro": {
-            "courseData": "run-init.sh",
-            "code": "set-env.sh",
+            // "courseData": "run-init.sh",
+            // "code": "set-env.sh",
             "text": "00-intro.md"
         },
         "finish": {
@@ -57,10 +57,9 @@
         "uisettings": "javascript",
         "showdashboard": true,
         "hideintro": false,
-        "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}, {"name": "Sample Application", "port": 80}],
         "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
     },
     "backend": {
-        "imageid": "kubernetes"
+        "imageid": "bash"
     }
 }
