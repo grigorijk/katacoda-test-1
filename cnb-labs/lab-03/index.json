@@ -24,6 +24,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
+    "showdashboard": true,
     "dashboards": [{"name": "Application port", "port": 3000}]
   },
   "backend": {
