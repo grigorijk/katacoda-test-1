@@ -1,0 +1,16 @@
+{
+    "title": "cnb-labs",
+    "description": "Cloud Native Bootcamp Labs",
+    "courses": [
+        {
+            "course_id": "lab-03",
+            "title": "Developing a Microservice with TDD",
+            "description": "my-description"
+        },
+        {
+            "course_id": "lab-03",
+            "title": "Developing a Microservice with TDD in Java",
+            "description": "my-description"
+        }
+    ]
+}
