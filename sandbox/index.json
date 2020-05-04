@@ -32,7 +32,7 @@
     }
   },
   "backend": {
-    "imageid": "openshift-4-2"
+    "imageid": "openshift-4-3"
   },
   "environment": {
     "showdashboard": true,
