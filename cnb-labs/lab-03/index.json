@@ -1,30 +1,31 @@
 {
-    "title": "lab-03",
-    "description": "Developing a Microservice with TDD",
-    "difficulty": "Intermediate",
-    "time": "60 minutes",
-    "details": {
-      "steps": [
-        {
-          "title": "Step 1",
-          "text": "step1.md"
-        },
-        {
-          "title": "Step 2",
-          "text": "step2.md"
-        }
-      ],
-      "intro": {
-        "text": "intro.md"
+  "noindex": true,
+  "title": "lab-03",
+  "description": "Developing a Microservice with TDD",
+  "difficulty": "Intermediate",
+  "time": "60 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
       },
-      "finish": {
-        "text": "finish.md"
+      {
+        "title": "Step 2",
+        "text": "step2.md"
       }
+    ],
+    "intro": {
+      "text": "intro.md"
     },
-    "environment": {
-      "uilayout": "editor-terminal"
-    },
-    "backend": {
-      "imageid": "javascript"
+    "finish": {
+      "text": "finish.md"
     }
+  },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "nodejs"
   }
+}
