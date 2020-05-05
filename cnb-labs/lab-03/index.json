@@ -13,6 +13,26 @@
       {
         "title": "Testing with Jest",
         "text": "2-Jest.md"
+      },
+      {
+        "title": "Writing the first test",
+        "text": "3-First-test.md"
+      },
+      {
+        "title": "Mocking objects and methods with Sinon",
+        "text": "4-Mocking-with-sinon.md"
+      },
+      {
+        "title": "Covering additional requirements, repeating cycle",
+        "text": "5-New-requirements-cycle.md"
+      },
+      {
+        "title": "Mocking http call with Nock",
+        "text": "6-Mocking-with-nock.md"
+      },
+      {
+        "title": "Create and run a microservice",
+        "text": "7-Run-microservice.md"
       }
     ],
     "intro": {

@@ -12,14 +12,14 @@
 
   `touch tests/shipping-controller.test.js`{{execute}}
 
-  1. Using your favourite IDE (VSCode is recommended for javascript) create your empty test suite, using the `describe` syntax:
+  1. Create your empty test suite, using the `describe` syntax in `tests/shipping-controller.test.js`{{open}}:
 
   <pre class="file hljs js" data-target="clipboard">
-        // File tests/shipping-controller.test.js
-        describe('Shipping Controller', function() {
-            // Test cases will go here
-            it('Canary test', () => {})
-        })
+    // File tests/shipping-controller.test.js
+    describe('Shipping Controller', function() {
+        // Test cases will go here
+        it('Canary test', () => {})
+    })
   </pre>
 
   We also have added one empty test, using `it()`, because _Jest_ test suite should have at least one test.
