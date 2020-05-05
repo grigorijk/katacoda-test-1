@@ -13,7 +13,6 @@
   1. Create your empty test suite, using the `describe` syntax in `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
   <pre class="file hljs js" data-target="clipboard">
-    // File tests/shipping-controller.test.js
     describe('Shipping Controller', function() {
         // Test cases will go here
         it('Canary test', () => {})
@@ -43,7 +42,7 @@
 
   Results are correct, since we don't have any real test cases yet, just an empty test with zero failures.
 
-  1. Let's push the code into code repository. You should have github.com account for that, and have repository `shipping-service` already created in there. Since your current folder is cloned from github, just type the following commands in terminal:
+  <!-- 1. Let's push the code into code repository. You should have github.com account for that, and have repository `shipping-service` already created in there. Since your current folder is cloned from github, just type the following commands in terminal:
 
   <pre class="file hljs bash" data-target="clipboard">
   git add tests package.json
@@ -51,4 +50,4 @@
   git push
   </pre>
 
-  Validate in browser that all files are uploaded successfully
+  Validate in browser that all files are uploaded successfully -->
