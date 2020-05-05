@@ -1,11 +1,10 @@
-# Setup
 
 For this exercise you should use directory, cloned from your github repository `shipping-service`. Clone it in terminal window using it's https URL:
 
 `git clone <<your git repo's https URL>>`{{copy}}
 <!-- Open the shipping-service folder in VSCode and then open the terminal view in VSCode. -->
 
-<!-- `mkdir -p shipping-service && cd shipping-service`{{execute}} -->
+`mkdir -p shipping-service && cd shipping-service`{{execute}}
 
 <!-- **!NB**: For windows users please ensure the VSCode terminal is set to bash. -->
   
@@ -31,6 +30,6 @@ Latter commands install libraries `axios` (which is used in the main code) and `
 
 `npm i axios --save`{{execute}}
 
-`npm i sinon --save-dev`{{action}}
+`npm i sinon --save-dev`{{execute}}
 
-`npm i nock --save-dev`{{action}}
+`npm i nock --save-dev`{{execute}}

@@ -1,46 +1,56 @@
-## Testing with _Jest_
 
-  1. In our project folder create new folder `tests`, and the first test file inside it: `shipping-controller.test.js`. Using your favourite IDE (VSCode is recommended for javascript) create your empty test suite, using the `describe` syntax:
+# X
 
-      ```javascript
-      // File tests/shipping-controller.test.js
-      describe('Shipping Controller', function() {
-          // Test cases will go here
-          it('Canary test', () => {})
-      })
-      ```
+  1. In our project folder create new folder `tests`, and the first test file inside it: `shipping-controller.test.js`:
 
-      We also have added one empty test, using `it()`, because _Jest_ test suite should have at least one test.
+  <pre class="file hljs bash" data-target="clipboard">
+    mkdir -p tests
+    touch tests/shipping-controller.test.js
+  </pre>
 
-  2. Now let's run all tests in our folder:
+  `mkdir -p tests`{{execute}}
 
-      ```sh
-      jest tests --watch
-      ```
+  `touch tests/shipping-controller.test.js`{{execute}}
 
-      Here second argument `tests` directs to the folder, where the test files are stored. Option `--watch` tells jest to not exit after run, and keep looking for further test file changes. When changes are found, tests are re-run. This enables 'testing on the fly', which is pretty handy in TDD.
+  1. Using your favourite IDE (VSCode is recommended for javascript) create your empty test suite, using the `describe` syntax:
 
-      After running our empty test suite with an empty test, we get result:
+  <pre class="file hljs js" data-target="clipboard">
+        // File tests/shipping-controller.test.js
+        describe('Shipping Controller', function() {
+            // Test cases will go here
+            it('Canary test', () => {})
+        })
+  </pre>
 
-      ```text
-       PASS  tests/shipping-controller.test.js
-      Shipping Controller
-        ✓ Canary test
+  We also have added one empty test, using `it()`, because _Jest_ test suite should have at least one test.
 
-      Test Suites: 1 passed, 1 total
-      Tests:       1 passed, 1 total
-      Snapshots:   0 total
-      Time:        0.094s, estimated 1s
-      ```
+  1. Now let's run all tests in our folder:
 
-      Results are correct, since we don't have any real test cases yet, just an empty test with zero failures.
-  
-  3. Let's push the code into code repository. You should have github.com account for that, and have repository `shipping-service` already created in there. Since your current folder is cloned from github, just type the following commands in terminal:
+  `jest tests --watch`{{execute}}
 
-        ```shell
-        git add tests package.json
-        git commit -m "initial commit"
-        git push
-        ```
+  Here second argument `tests` directs to the folder, where the test files are stored. Option `--watch` tells jest to not exit after run, and keep looking for further test file changes. When changes are found, tests are re-run. This enables 'testing on the fly', which is pretty handy in TDD.
 
-        Validate in browser that all files are uploaded successfully.
+  After running our empty test suite with an empty test, we get result:
+
+  ```text
+    PASS  tests/shipping-controller.test.js
+  Shipping Controller
+    ✓ Canary test
+
+  Test Suites: 1 passed, 1 total
+  Tests:       1 passed, 1 total
+  Snapshots:   0 total
+  Time:        0.094s, estimated 1s
+  ```
+
+  Results are correct, since we don't have any real test cases yet, just an empty test with zero failures.
+
+  1. Let's push the code into code repository. You should have github.com account for that, and have repository `shipping-service` already created in there. Since your current folder is cloned from github, just type the following commands in terminal:
+
+  <pre class="file hljs bash" data-target="clipboard">
+  git add tests package.json
+  git commit -m "initial commit"
+  git push
+  </pre>
+
+  Validate in browser that all files are uploaded successfully
