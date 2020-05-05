@@ -4,16 +4,16 @@ For mocking we will use `sinon` library that is already added to `shipping-servi
 
 1. Let's add another test case to `shipping-service/tests/shipping-controller.test.js`{{open}} to ensure that it covers variety of test values:
 
-  <pre class="file hljs js" data-target="clipboard">
+    <pre class="file hljs js" data-target="clipboard">
       it('Should calculate correct shipping for id: 2 ', async function () {
         let shipping = await shippingCtrl.getItemShipping({ id: 2, type: 'standard' })
         expect(shipping).toBe(1)
       })
-  </pre>
+    </pre>
 
-Jest tests should fail now
+    Unit tests should start fail now
 
-1. Let's write some logic in our controller and find out the candidate for mocking:
+1. Let's write some logic in our controller `shipping-service/src/controllers/shipping-controller.js`{{open}} and find out the candidate for mocking:
 
     <pre class="file hljs js" data-filename="shipping-service/src/controllers/shipping-controller.js" data-target="replace">
       var productService = require('../services/product-service')
@@ -48,7 +48,7 @@ Jest tests should fail now
     }
     </pre>
 
-1. Then, we can mock it with `sinon.stub()` method in our test:
+1. Then, we can mock it with `sinon.stub()` method in our test `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
     <pre class="file hljs js" data-filename="shipping-service/tests/shipping-controller.test.js" data-target="replace">
         var sinon = require('sinon')
@@ -78,10 +78,12 @@ Jest tests should fail now
             })
             it('Should calculate correct shipping for id: 2 ', async function () {
                 let shipping = await shippingCtrl.getItemShipping({ id: 2, type: 'standard' })
-                expect(shipping).toBe(0.7)
+                expect(shipping).toBe(1)
             })
         })
     </pre>
 
-   `sinon.stub` method takes object to work on, and method name to mock. `callsFake` takes a function, which is a replacement of the original one.
-   Our mock implementation returns `Promise` object and resolves it after 50 milliseconds with the value of `0.5`. The test now passes, since it gets required data from product service, and returns expected result for regular shipping type
+   `sinon.stub` method takes object to work on and method name to mock. `callsFake` takes a function, which is a replacement of the original one.
+   Our mock implementation returns `Promise` object and resolves it after 50 milliseconds with the value of `0.5` or `1`.
+
+   The tests `jest tests --watch`{{execute}} now pass because they get required data from product service and return expected result for regular shipping type
