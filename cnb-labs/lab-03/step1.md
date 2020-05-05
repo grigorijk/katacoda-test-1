@@ -18,11 +18,11 @@ Second one installs `jest` testing library globally. And makes `jest` command av
 
 Sometimes Jest takes a bit more time to start, than desired. To speed it up, we need to add few lines to the `shipping-service/package.json`{{open}} file (might be right after "license"):
 
-````json
+<pre data-target="clipboard">
 ,
   "jest": {
     "testEnvironment": "node"
   }
-```{{copy}}
+</pre>
 
 Latter commands install libraries `axios` (which is used in the main code) and `sinon`, `nock`, which are used only at development/testing time.
