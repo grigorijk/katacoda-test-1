@@ -1,53 +1,56 @@
-  11. Even though our test passes now, it does not cover all the requirements, since there are two types of shipment, and they are priced differently. We will write additional test case to cover overnight shipment.
-  
-        ```javascript
-        // part of tests/shipping-controller.test.js
+Although our tests pass now they do not cover all the requirements as there are two types of shipment and they are priced differently. 
+
+1. Let's write additional test case to to `shipping-service/tests/shipping-controller.test.js`{{open}} that covers overnight shipment:
+
+    <pre class="file hljs js" data-target="clipboard">
         it('Should calculate correct overnight shipping ', async function () {
             let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'overnight' })
             expect(shipping).toBe(5)
         })
-        ```
+    </pre>
 
-        The test reflects valid business requirement, but it fails again:
+    The test reflects valid business requirement, but it fails again:
 
-        ```text
-        FAIL  tests/shipping-controller.test.js
-          Shipping controller
-            ✓ Should calculate correct shipping  (69ms)
-            ✕ Should calculate correct overnight shipping  (70ms)
+    ```text
+    FAIL  tests/shipping-controller.test.js
+        Shipping controller
+        ✓ Should calculate correct shipping  
+        ✓ Should calculate correct shipping for id: 2
+        ✕ Should calculate correct overnight shipping  
 
-          ● Shipping controller › Should calculate correct overnight shipping
+        ● Shipping controller › Should calculate correct overnight shipping
 
-          expect(received).toBe(expected) // Object.is equality
+        expect(received).toBe(expected) // Object.is equality
 
-          Expected: 5
-          Received: 0.5
+        Expected: 5
+        Received: 0.5
 
-          ...
+        ...
 
-          Test Suites: 1 failed, 1 total
-          Tests:       1 failed, 1 passed, 2 total
-        ```
+        Test Suites: 1 failed, 1 total
+        Tests:       1 failed, 1 passed, 2 total
+    ```
 
-  12. We are mocking the same result from the `productService`, but the `type` of the item is passed different, so the calculations must reflect that. Let’s alter implementation, to make this test happy: replace the existing `async getItemShipping(item)` function in the controller with below code
+1. We are mocking the same result from the `productService`, but the `type` of the item is passed different, so the calculations must reflect that. Let’s alter implementation, to make this test happy: replace the existing `async getItemShipping(item)` function in the controller `shipping-service/src/controllers/shipping-controller.js`{{open}} with below code:
 
-        ```javascript
+    <pre class="file hljs js" data-target="clipboard">
         // part of src/controllers/shipping-controller.js
         async getItemShipping(item) {
-          var shippingAmount = await productService.getProductWeight(item.id)
-          if (item.type.toLowerCase() === 'overnight') {
+            var shippingAmount = await productService.getProductWeight(item.id)
+            if (item.type.toLowerCase() === 'overnight') {
             return shippingAmount * this.OVERNIGHT_PRICE
-          } else {
+            } else {
             return shippingAmount * this.REGULAR_PRICE
-          }
+            }
         }
-        ```
+    </pre>
 
-        Implementation now calculates different prices per requirement, and both tests are passing.
+    This Implementation now calculates different prices per requirement, and both tests are passing
 
-        ```text
-        PASS  tests/shipping-controller.test.js
+    ```text
+    PASS  tests/shipping-controller.test.js
         Shipping controller
-          ✓ Should calculate correct shipping  (65ms)
-          ✓ Should calculate correct overnight shipping  (55ms)
-        ```
+        ✓ Should calculate correct shipping  
+        ✓ Should calculate correct shipping for id: 2
+        ✓ Should calculate correct overnight shipping  
+    ```
