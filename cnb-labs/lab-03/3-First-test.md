@@ -45,4 +45,4 @@
     module.exports = ShippingController
   </pre>
 
-  If you run the `jest tests --watch`{{execute}} the tests will pass. However, there is no the business logic implementation yet, so we need to write more tests to cover it
+  If you run the `jest tests`{{execute}} the tests will pass. However, there is no the business logic implementation yet, so we need to write more tests to cover it

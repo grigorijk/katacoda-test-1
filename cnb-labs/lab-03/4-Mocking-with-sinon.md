@@ -11,7 +11,7 @@ For mocking we will use `sinon` library that is already added to `shipping-servi
       })
     </pre>
 
-    Unit tests should start fail now
+    Unit tests should start fail now `jest tests --watch`{{execute}}
 
 1. Let's write some logic in our controller `shipping-service/src/controllers/shipping-controller.js`{{open}} and find out the candidate for mocking:
 
@@ -34,11 +34,15 @@ For mocking we will use `sinon` library that is already added to `shipping-servi
       module.exports = ShippingController;
     </pre>
 
+    The tests are now failing because of missing service, as we now added logic to call product service adaptor
+
 1. From the code it is visible, that we are using `productService` to get the item weight. But we do not have any service yet. Since the service is external, it is not subject of our unit tests. Thus we need to decouple it from our tests by replacing its implementation with the mock version. For that we still need to have an adapter to call, therefore we will create an empty `project-service.js` module with a singe method in the `src/services` folder:
 
     `mkdir -p src/services`{{execute}}
 
     `touch src/services/product-service.js`{{execute}}
+
+    `shipping-service/src/services/product-service.js`{{open}}
 
     <pre class="file hljs js" data-filename="shipping-service/src/services/product-service.js" data-target="replace">
     module.exports = {
@@ -48,7 +52,9 @@ For mocking we will use `sinon` library that is already added to `shipping-servi
     }
     </pre>
 
-1. Then, we can mock it with `sinon.stub()` method in our test `shipping-service/tests/shipping-controller.test.js`{{open}}:
+    The missing service error should be gone now, but the adaptor yet has no logic to call any external service, so the tests `jest tests --watch`{{execute}} fail
+
+1. Then we can mock it with `sinon.stub()` method in our test `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
     <pre class="file hljs js" data-filename="shipping-service/tests/shipping-controller.test.js" data-target="replace">
         var sinon = require('sinon')
