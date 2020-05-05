@@ -25,7 +25,7 @@
 
   You can see that jest output has changed to a different one
 
-1. Lets define an empty method, in the shipping controller, called `getItemShipping`. Create file `shipping-controller.js` in  `src/controllers` folder:
+1. Let's define an empty method in the shipping controller called `getItemShipping`. Create file `shipping-controller.js` in  `src/controllers` folder:
 
   `mkdir -p src/controllers`{{execute}}
 
@@ -45,4 +45,4 @@
     module.exports = ShippingController
   </pre>
 
-  If you run the `jest tests --watch`{{execute}} the tests will pass. However, the business logic implementation yet, so we need to write more tests to cover it
+  If you run the `jest tests --watch`{{execute}} the tests will pass. However, there is no the business logic implementation yet, so we need to write more tests to cover it

@@ -1,10 +1,10 @@
 
   1. In our project folder create new folder `tests`, and the first test file inside it: `shipping-controller.test.js`:
 
-  <pre class="file hljs bash" data-target="clipboard">
+  <!-- <pre class="file hljs bash" data-target="clipboard">
     mkdir -p tests
     touch tests/shipping-controller.test.js
-  </pre>
+  </pre> -->
 
   `mkdir -p tests`{{execute}}
 

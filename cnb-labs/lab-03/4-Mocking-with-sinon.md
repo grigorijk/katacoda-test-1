@@ -15,7 +15,7 @@ Jest tests should fail now
 
 1. Let's write some logic in our controller and find out the candidate for mocking:
 
-    <pre class="file hljs js" data-filename="shipping-service/tests/shipping-controller.test.js" data-target="replace">
+    <pre class="file hljs js" data-filename="shipping-service/src/controllers/shipping-controller.js" data-target="replace">
       var productService = require('../services/product-service')
 
       class ShippingController {
@@ -34,18 +34,18 @@ Jest tests should fail now
       module.exports = ShippingController;
     </pre>
 
-1. From the code it is visible, that we are using `productService` to get the item weight. But we do not have any service yet. Since the service is external, it is not subject of our unit tests. Thus we need to decouple it from our tests by replacing its implementation with the mock version. For that we still need to have an adapter to call, therefore we will create an empty module with a singe method in the `src/services` folder:
+1. From the code it is visible, that we are using `productService` to get the item weight. But we do not have any service yet. Since the service is external, it is not subject of our unit tests. Thus we need to decouple it from our tests by replacing its implementation with the mock version. For that we still need to have an adapter to call, therefore we will create an empty `project-service.js` module with a singe method in the `src/services` folder:
 
     `mkdir -p src/services`{{execute}}
 
     `touch src/services/product-service.js`{{execute}}
 
     <pre class="file hljs js" data-filename="shipping-service/src/services/product-service.js" data-target="replace">
-        module.exports = {
-            getProductWeight: async function(productId) {
-            // Meanwhile it can be implemented by other developers
-            }
+    module.exports = {
+        getProductWeight: async function(productId) {
+        // Meanwhile it can be implemented by other developers
         }
+    }
     </pre>
 
 1. Then, we can mock it with `sinon.stub()` method in our test:
@@ -59,10 +59,10 @@ Jest tests should fail now
             var shippingCtrl = new ShippingController()
 
             beforeEach(function(){
-                sinon.stub(productService, 'getProductWeight').callsFake(async function() {
+                sinon.stub(productService, 'getProductWeight').callsFake(async function(id) {
                     return new Promise(function (resolve, reject) {
                         setTimeout(() => {
-                            resolve(5)
+                            resolve(id === 1 ? 5 : 10)
                         }, 50)
                     })
                 })
