@@ -12,7 +12,7 @@
 
   1. Create your empty test suite, using the `describe` syntax in `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
-  <pre class="file hljs js" data-target="clipboard">
+  <pre class="file hljs js" data-filename="shipping-service/tests/shipping-controller.test.js" data-target="replace">
     describe('Shipping Controller', function() {
         // Test cases will go here
         it('Canary test', () => {})
