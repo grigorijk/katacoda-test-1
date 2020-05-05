@@ -7,7 +7,7 @@ For mocking we will use `sinon` library that is already added to `shipping-servi
   <pre class="file hljs js" data-target="clipboard">
       it('Should calculate correct shipping for id: 2 ', async function () {
         let shipping = await shippingCtrl.getItemShipping({ id: 2, type: 'standard' })
-        expect(shipping).toBe(0.7)
+        expect(shipping).toBe(1)
       })
   </pre>
 
