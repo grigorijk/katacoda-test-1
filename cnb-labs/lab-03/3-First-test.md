@@ -1,35 +1,50 @@
-  1. Let's create our first test case. For that we take business requirements from shipping service of microservices game. This service should return shipping price for the individual item by given product id. Service uses three other services to calculate that. So, lets define an empty method, in the shipping controller, called `getItemShipping`. Open your favourite text editor, and in the `src/controllers` folder create file, named `shipping-controller.js` with contents:
+1. Let's create our first test case
 
-      ```javascript
-      // src/controllers/shipping-controller.js
-      class ShippingController{
+For that we take simplified business requirements from shipping service of microservices game:
 
-        constructor() {}
+   1. Service should return shipping price for the individual item by given product id and shipping type
+   2. Service uses product weight provided by `product service` running externally via REST
+   3. Regular shipping price is 1/10 x of product weight
+   4. Overnight shipping price is 10 x of regular shipping price
 
-        getItemShipping(item) {}
+1. Since now we have requirements we can write first test and expect it fail. Create the following test case in `shipping-service/tests/shipping-controller.test.js`{{open}}
 
-      }
+   <pre class="file hljs js" data-filename="shipping-service/tests/shipping-controller.test.js" data-target="append">
+   // tests/shipping-controller.test.js
+   var ShippingController = require('../src/controllers/shipping-controller')
 
-      module.exports = ShippingController
-      ```
+   describe('Shipping controller', function () {
+     var shippingCtrl = new ShippingController()
 
-  2. Since now we have our empty controller, with visible contract, we can write first test, and expect some results from it: Create the file shipping-controller.test.js in the tests folder and paste below code in to it:
+     it('Should calculate correct shipping ', async function () {
+       let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'standard' })
+       expect(shipping).toBe(0.5)
+     })
 
-      ```javascript
-      // tests/shipping-controller.test.js
-      var ShippingController = require('../src/controllers/shipping-controller')
+   })
+   </pre>
 
-      describe('Shipping controller', function () {
-        var shippingCtrl = new ShippingController()
+You can see that jest output has changed to a different one
 
-        it('Should calculate correct shipping ', async function () {
-          let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'standard' })
-          expect(shipping).toBe(0.5)
-        })
+2. Lets define an empty method, in the shipping controller, called `getItemShipping`. Create file `shipping-controller.js` in  `src/controllers` folder:
 
-      })
-      ```
+`mkdir -p src/controllers`{{execute interrupt}}
 
-      We have created shipping controller object `shippingCtrl`. The test itself asynchronously called method `getItemShipping`, and expected result of `0.5`. For now it makes no sense, since code and test does not know initial data, which should be provided by product service. For this test to work we need to implement logic in the controller method, and mock the data.
+`touch src/controllers/shipping-controller.js`{{execute}}
 
-      If you run the `jest tests` command the tests will fail. That's expected
+1. Add the following contents with contents to it `shipping-service/src/shipping-controller.js`{{open}}:
+
+  <pre class="file hljs js" data-filename="shipping-service/src/shipping-controller.js" data-target="replace">
+    // src/controllers/shipping-controller.js
+    class ShippingController{
+
+      constructor() {}
+
+      getItemShipping(item) {}
+
+    }
+
+    module.exports = ShippingController
+  </pre>
+
+If you run the `jest tests --watch`{{execute}} command the tests will fail. That's expected since there is no business logic implementation yet

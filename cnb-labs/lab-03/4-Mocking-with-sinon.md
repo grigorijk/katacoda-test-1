@@ -1,3 +1,5 @@
+We have created shipping controller object `shippingCtrl`. The test itself asynchronously called method `getItemShipping`, and expected result of `0.5`. For now it makes no sense, since code and test does not know initial data, which should be provided by product service. For this test to work we need to implement logic in the controller method, and mock the data.
+
 7. For mocking we will use `sinon` library. To install it, in command line run:
 
       ```sh

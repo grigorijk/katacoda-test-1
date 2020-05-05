@@ -1,6 +1,4 @@
 
-# X
-
   1. In our project folder create new folder `tests`, and the first test file inside it: `shipping-controller.test.js`:
 
   <pre class="file hljs bash" data-target="clipboard">
@@ -12,7 +10,7 @@
 
   `touch tests/shipping-controller.test.js`{{execute}}
 
-  1. Create your empty test suite, using the `describe` syntax in `tests/shipping-controller.test.js`{{open}}:
+  1. Create your empty test suite, using the `describe` syntax in `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
   <pre class="file hljs js" data-target="clipboard">
     // File tests/shipping-controller.test.js
