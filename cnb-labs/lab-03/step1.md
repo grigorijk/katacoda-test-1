@@ -26,7 +26,7 @@ Sometimes Jest takes a bit more time to start, than desired. To speed it up, we 
 </pre>
 
 
-<pre class="file hljs" data-target="clipboard">
+<pre class="file hljs javascript" data-target="clipboard">
 ,
   "jest": {
     "testEnvironment": "node"
