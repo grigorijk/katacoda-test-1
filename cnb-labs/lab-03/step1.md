@@ -18,7 +18,7 @@ Second one installs `jest` testing library globally. And makes `jest` command av
 
 Sometimes Jest takes a bit more time to start, than desired. To speed it up, we need to add few lines to the `shipping-service/package.json`{{open}} file (might be right after "license"):
 
-<pre class="file" data-target="clipboard">
+<pre class="file hljs nginx" data-target="clipboard">
 ,
   "jest": {
     "testEnvironment": "node"
@@ -26,7 +26,7 @@ Sometimes Jest takes a bit more time to start, than desired. To speed it up, we 
 </pre>
 
 
-<pre class="file hljs javascript" data-target="clipboard">
+<pre class="file hljs json" data-target="clipboard">
 ,
   "jest": {
     "testEnvironment": "node"
@@ -37,5 +37,14 @@ Sometimes Jest takes a bit more time to start, than desired. To speed it up, we 
   "jest": {
     "testEnvironment": "node"
   }
+</pre>
+
+
+<pre class="file hljs nginx" data-target="clipboard">
+    ls
+    docker info
+    docker build -t katacoda/jenkins-demo:${BUILD_NUMBER} .
+    docker tag katacoda/jenkins-demo:${BUILD_NUMBER} katacoda/jenkins-demo:latest
+    docker images
 </pre>
 Latter commands install libraries `axios` (which is used in the main code) and `sinon`, `nock`, which are used only at development/testing time.
