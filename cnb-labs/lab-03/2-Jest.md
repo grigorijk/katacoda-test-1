@@ -21,9 +21,11 @@
 
   1. Now let's run all tests in our folder:
 
-  `jest tests --watch`{{execute}}
+  `jest tests`{{execute}}
 
-  The first argument `tests` points to the folder, where the test files are stored. Option `--watch` tells jest to not exit after run and keep looking for further test file changes. When changes are found tests are re-run. This enables 'testing on the fly' which is pretty handy in TDD.
+  The first argument `tests` points to the folder, where the test files are stored. 
+  
+  You can use option `--watch` tells jest to not exit after run and keep looking for further test file changes. When changes are found tests are re-run. This enables 'testing on the fly' which is pretty handy in TDD.
 
   After running our empty test suite with an empty test, we get result:
 
