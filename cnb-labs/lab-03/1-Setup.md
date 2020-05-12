@@ -15,7 +15,7 @@
 
   `npm init -y`{{execute}}
 
-  The command initializes our project by creating `package.json` file with default (or provided) values. It is the core of each javascript application based on npm. If auto-init fails, try running it without `-y` argument, and provide the values.
+  The command initializes our project by creating `shipping-service/package.json`{{open}} file with default (or provided) values. It is the core of each javascript application based on npm. If auto-init fails, try running it without `-y` argument, and provide the values.
 
 1. Now let's install test running library as a global terminal command:
 
@@ -27,9 +27,9 @@
 
   <pre class="file hljs json" data-target="clipboard">
   ,
-    "jest": {
-      "testEnvironment": "node"
-    }
+      "jest": {
+        "testEnvironment": "node"
+      }
   </pre>
 
 1. We are now ready to start test driven development with node.js
