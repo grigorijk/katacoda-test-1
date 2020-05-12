@@ -3,10 +3,10 @@ Although our tests pass now they do not cover all the requirements as there are 
 1. Let's write additional test case to to `shipping-service/tests/shipping-controller.test.js`{{open}} that covers overnight shipment:
 
     <pre class="file hljs js" data-target="clipboard">
-            it('Should calculate correct overnight shipping ', async function () {
-                let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'overnight' })
-                expect(shipping).toBe(5)
-            })
+        it('Should calculate correct overnight shipping ', async function () {
+            let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'overnight' })
+            expect(shipping).toBe(5)
+        })
     </pre>
 
     The `jest tests`{{execute}} cover valid business requirement and fail again:
