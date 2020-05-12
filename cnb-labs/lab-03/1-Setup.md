@@ -7,9 +7,9 @@
 
   `mkdir -p shipping-service && cd shipping-service`{{execute}}
 
-<!-- **!NB**: For windows users please ensure the VSCode terminal is set to bash. -->
-  
-<!-- Then, assuming you already have `node` and `npm` installed, run the following commands: -->
+  <!-- **!NB**: For windows users please ensure the VSCode terminal is set to bash. -->
+    
+  <!-- Then, assuming you already have `node` and `npm` installed, run the following commands: -->
 
 1. Then let's initiate the Node.js project by running the following command:
 
@@ -23,19 +23,19 @@
 
   Try running `jest`{{execute}} in terminal
 
-2. Sometimes Jest takes more time to start than desired. To speed it up we need to add few lines to the `shipping-service/package.json`{{open}} file (might be right after "license"):
+1. Sometimes Jest takes more time to start than desired. To speed it up we need to add few lines to the `shipping-service/package.json`{{open}} file (might be right after "license"):
 
-<pre class="file hljs json" data-target="clipboard">
-,
-  "jest": {
-    "testEnvironment": "node"
-  }
-</pre>
+  <pre class="file hljs json" data-target="clipboard">
+  ,
+    "jest": {
+      "testEnvironment": "node"
+    }
+  </pre>
 
 1. We are now ready to start test driven development with node.js
 
-<!-- Latter commands install libraries `axios` (which is used in the main code) and `sinon`, `nock`, which are used only at development/testing time.
+  <!-- Latter commands install libraries `axios` (which is used in the main code) and `sinon`, `nock`, which are used only at development/testing time.
 
-`npm i axios --save`{{execute}}
+  `npm i axios --save`{{execute}}
 
-`npm i sinon nock --save-dev`{{execute}} -->
+  `npm i sinon nock --save-dev`{{execute}} -->
