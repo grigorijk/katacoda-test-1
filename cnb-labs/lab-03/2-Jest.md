@@ -11,8 +11,8 @@
 
     <pre class="file hljs js" data-filename="shipping-service/tests/shipping-controller.test.js" data-target="replace">
     describe('Shipping Controller', function() {
-        // Test cases will go here
         it('Canary test', () => {})
+        // Test cases will go here
     })
     </pre>
 

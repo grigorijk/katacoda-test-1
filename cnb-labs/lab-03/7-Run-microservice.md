@@ -1,41 +1,46 @@
 
-1. Our created and tested code is not a running microservice. In order our functional modules to become a service, we need to expose them as one. Probably the most popular library for this task is **express.js**. Let's install it and see, how much effort it takes. In the terminal, install the latest express and save it as dependency:
+Our created and tested code is not a running microservice yet. To our functional modules to become a service we need to expose an HTTP endpoint. One of the most popular libraries for this is [express.js](https://expressjs.com)
 
-`npm i express --save`{{execute}}
+1. Let us add it to the project:
 
-1. After installing express package, we need to create an entry point of the web service. Usually, entry file is named `app.js`, `index.js` and similar. In `src` folder, create one more file, called `app.js`:
+    `npm i express --save`{{execute}}
 
-<pre class="file hljs js" data-target="clipboard">
-  // contents of src/app.js
-  const express = require('express')
-  const app = express()
+1. After installing express package we need to create an entry point of the web service. Typically the entry file is named `app.js` or `index.js`. We will use `app.js`:
 
-  app.get('/*shipping', (request, response) => {
-    response.send('It works!')
-  })
+    `touch src/app.js`{{execute}}
 
-  app.listen(3000, () => console.log('ShippingService is listening on port 3000'))
-</pre>
+1. Let us add the minimum config to run an HTTP service to `shipping-service/src/app.js`{{open}}:
 
-It is the one of the shortest possible services with express. You can run it by typing:
+    <pre class="file hljs js"  data-filename="shipping-service/src/app.js" data-target="replace">
+    const express = require('express')
+    const app = express()
 
-`node src/app.js`{{execute}}
+    app.get('/*shipping', (request, response) => {
+        response.send('It works!')
+    })
 
-and it will report, that:
+    app.listen(3000, () => console.log('ShippingService is listening on port 3000'))
+    </pre>
 
-```sh
-ShippingService is listening on port 3000
-```
+1. It can be run buy using:
 
-In the browser, by opening [http://localhost:3000/shipping](http://localhost:3000/shipping) you will see, that service is working. Just not much is done yet.
+    `node src/app.js`{{execute}}
+
+    The output should be:
+
+    ```sh
+    ShippingService is listening on port 3000
+    ```
+
+    By opening [https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/shipping](https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/shipping) you will see that service is responding
 
 1. Let's add some flesh on this skeleton. Our service should respond to HTTP GET requests with given arguments of `itemId` and shipping `type`. Let's modify the header to extract those path parameters.
 
-<pre class="file hljs js" data-target="clipboard">
-  app.get('/*shipping', (request, response) => {
-</pre>
+    <pre class="file hljs js" data-target="clipboard">
+    app.get('/*shipping', (request, response) => {
+    </pre>
 
-1. Those parameters will be stored in `request.params` array variable. Our implementation logic is in the module `shipping-controller.js`. We should require it, and use its methods to generate response.
+1. Those parameters will be stored in `request.query` array variable. Our implementation logic is in the module `shipping-controller.js`. We should require it, and use its methods to generate response.
 
 <pre class="file hljs js" data-target="clipboard">
   // src/app.js

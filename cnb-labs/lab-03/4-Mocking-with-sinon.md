@@ -10,10 +10,10 @@ Our test call asynchronously `getItemShipping` method and expects result of `0.5
 2. Let's add another test case to `shipping-service/tests/shipping-controller.test.js`{{open}} to ensure that it covers variety of test values:
 
     <pre class="file hljs js" data-target="clipboard">
-    it('Should calculate correct shipping for id: 2 ', async function () {
-        let shipping = await shippingCtrl.getItemShipping({ id: 2, type: 'standard' })
-        expect(shipping).toBe(1)
-    })
+        it('Should calculate correct shipping for id: 2 ', async function () {
+            let shipping = await shippingCtrl.getItemShipping({ id: 2, type: 'standard' })
+            expect(shipping).toBe(1)
+        })
     </pre>
 
     Unit tests should start fail now `jest tests`{{execute}}
@@ -39,13 +39,11 @@ Our test call asynchronously `getItemShipping` method and expects result of `0.5
     module.exports = ShippingController;
     </pre>
 
-    The tests `jest tests`{{execute}} are now failing because of missing service, as we now added logic to call product service adaptor
+    The `jest tests`{{execute}} are now failing because of missing service, as we now added logic to call product service adaptor
 
 4. From the code it is visible, that we are using `productService` to get the item weight. But we do not have any service yet. Since the service is external, it is not subject of our unit tests. Thus we need to decouple it from our tests by replacing its implementation with the mock version. For that we still need to have an adapter to call, therefore we will create an empty `project-service.js` module with a singe method in the `src/services` folder:
 
-    `mkdir -p src/services`{{execute}}
-
-    `touch src/services/product-service.js`{{execute}}
+    `mkdir -p src/services && touch src/services/product-service.js`{{execute}}
 
     `shipping-service/src/services/product-service.js`{{open}}
 
@@ -57,7 +55,7 @@ Our test call asynchronously `getItemShipping` method and expects result of `0.5
     }
     </pre>
 
-    The missing service error should be gone now, but the adaptor yet has no logic to call any external service, so the tests `jest tests --watch`{{execute}} fail
+    The missing service error should be gone now, but the adaptor yet has no logic to call any external service, so the tests `jest tests`{{execute}} fail
 
 5. Then we can mock it with `sinon.stub()` method in our test `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
@@ -83,11 +81,11 @@ Our test call asynchronously `getItemShipping` method and expects result of `0.5
             productService.getProductWeight.restore()
         })
 
-        it('Should calculate correct shipping ', async function () {
+        it('Should calculate correct shipping', async function () {
             let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'standard' })
             expect(shipping).toBe(0.5)
         })
-        it('Should calculate correct shipping for id: 2 ', async function () {
+        it('Should calculate correct shipping for a different id', async function () {
             let shipping = await shippingCtrl.getItemShipping({ id: 2, type: 'standard' })
             expect(shipping).toBe(1)
         })
@@ -97,4 +95,4 @@ Our test call asynchronously `getItemShipping` method and expects result of `0.5
    `sinon.stub` method takes object to work on and method name to mock. `callsFake` takes a function, which is a replacement of the original one.
    Our mock implementation returns `Promise` object and resolves it after 50 milliseconds with the value of `0.5` or `1`.
 
-   The tests `jest tests --watch`{{execute}} now pass because they get required data from product service and return expected result for regular shipping type
+   The tests `jest tests`{{execute}} now pass because they get required data from product service and return expected result for regular shipping type

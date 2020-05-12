@@ -3,13 +3,13 @@ Although our tests pass now they do not cover all the requirements as there are 
 1. Let's write additional test case to to `shipping-service/tests/shipping-controller.test.js`{{open}} that covers overnight shipment:
 
     <pre class="file hljs js" data-target="clipboard">
-        it('Should calculate correct overnight shipping ', async function () {
-            let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'overnight' })
-            expect(shipping).toBe(5)
-        })
+            it('Should calculate correct overnight shipping ', async function () {
+                let shipping = await shippingCtrl.getItemShipping({ id: 1, type: 'overnight' })
+                expect(shipping).toBe(5)
+            })
     </pre>
 
-    The test reflects valid business requirement, but it fails again:
+    The `jest tests`{{execute}} cover valid business requirement and fail again:
 
     ```text
     FAIL  tests/shipping-controller.test.js
@@ -31,7 +31,7 @@ Although our tests pass now they do not cover all the requirements as there are 
         Tests:       1 failed, 1 passed, 2 total
     ```
 
-1. We are mocking the same result from the `productService`, but the `type` of the item is passed different, so the calculations must reflect that. Let’s alter implementation, to make this test happy: replace the existing code in the controller `shipping-service/src/controllers/shipping-controller.js`{{open}} with below code:
+2. We are mocking the same result from the `productService`, but the `type` of the item is passed different, so the calculations must reflect that. Let’s alter implementation, to make this test happy: replace the existing code in the controller `shipping-service/src/controllers/shipping-controller.js`{{open}} with below code:
 
     <pre class="file hljs js" data-filename="shipping-service/src/controllers/shipping-controller.js" data-target="replace">
     var productService = require('../services/product-service')
@@ -39,8 +39,8 @@ Although our tests pass now they do not cover all the requirements as there are 
     class ShippingController {
 
         constructor() {
-        this.REGULAR_PRICE = 0.1
-        this.OVERNIGHT_PRICE= 1;
+            this.REGULAR_PRICE = 0.1
+            this.OVERNIGHT_PRICE = 1;
         }
 
         async getItemShipping(item) {
@@ -56,7 +56,7 @@ Although our tests pass now they do not cover all the requirements as there are 
     module.exports = ShippingController;
     </pre>
 
-    This Implementation now calculates different prices per requirement, and both tests are passing
+    This Implementation now calculates different prices per requirement, and all `jest tests`{{execute}} are passing
 
     ```text
     PASS  tests/shipping-controller.test.js
