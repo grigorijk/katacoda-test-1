@@ -83,7 +83,7 @@ Our created and tested code is not a running microservice yet. To our functional
 
 4. Set environment variable to point to the external product service:
 
-    `export PRODUCT_PRODUCTS_URL=v7a4m6m4.hostrycdn.com/product-service/products`{{execute interrupt}}
+    `export PRODUCT_SERVICE_URL=v7a4m6m4.hostrycdn.com/product-service/products`{{execute interrupt}}
 
 5. This variable value can be changed to point to any other product service provider. The full source for `shipping-service/src/app.js`{{open}} should now look as follows:
 
@@ -141,4 +141,4 @@ Our created and tested code is not a running microservice yet. To our functional
         }
     </pre>
 
-    Our code became a runnable microservice. For real-world application it still needs a lot of work, like correct, separated structure, proper routing, security, logging, error handling, etc. But nonetheless it works, has minimal configuration, and can be prepared for deployment to the cloud.
+    Our code became a runnable microservice. It still needs a lot of work to become a production grade service. Nonetheless it works, has minimal configuration and can be prepared for deployment to the cloud
