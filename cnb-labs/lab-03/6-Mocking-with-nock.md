@@ -63,7 +63,7 @@ As mentioned before, we do not implement Product service ourselves. However, we 
     })
   </pre>
 
-  Notice the special comment at the beginning of the test, it helps Jest handle mocked requests.
+  Notice the special instruction at the beginning of the test that helps Jest to handle mocked requests
 
 1. After this call `nock` takes over the request, and returns our provided object (after delaying for a few milliseconds). The test still fails, because we don't have actual implementation yet, and nobody calls it. Let’s create it by running below command and replace the code in `product-service.js` with below
 
