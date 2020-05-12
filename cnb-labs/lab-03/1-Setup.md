@@ -25,12 +25,12 @@
 
 1. Sometimes Jest takes more time to start than desired. To speed it up we need to add few lines to the `shipping-service/package.json`{{open}} file (might be right after "license"):
 
-  <pre class="file hljs json" data-target="clipboard">
+    <pre class="file hljs json" data-target="clipboard">
     ,
         "jest": {
-        "testEnvironment": "node"
+            "testEnvironment": "node"
         }
-  </pre>
+    </pre>
 
 1. We are now ready to start test driven development with node.js
 
