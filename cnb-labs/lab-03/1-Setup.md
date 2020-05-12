@@ -30,6 +30,4 @@ Latter commands install libraries `axios` (which is used in the main code) and `
 
 `npm i axios --save`{{execute}}
 
-`npm i sinon --save-dev`{{execute}}
-
-`npm i nock --save-dev`{{execute}}
+`npm i sinon nock --save-dev`{{execute}}

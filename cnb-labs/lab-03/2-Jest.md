@@ -6,9 +6,7 @@
     touch tests/shipping-controller.test.js
   </pre> -->
 
-  `mkdir -p tests`{{execute}}
-
-  `touch tests/shipping-controller.test.js`{{execute}}
+  `mkdir -p tests && touch tests/shipping-controller.test.js`{{execute}}
 
   1. Create your empty test suite, using the `describe` syntax in `shipping-service/tests/shipping-controller.test.js`{{open}}:
 
