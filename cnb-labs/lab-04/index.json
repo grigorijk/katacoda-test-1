@@ -40,7 +40,7 @@
     "assets": {
       "host01": [
         {
-          "file": "nginx-ingress.yml",
+          "file": "nginx-ingress.yaml",
           "target": "~/"
         }
       ]
