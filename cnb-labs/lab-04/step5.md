@@ -38,7 +38,7 @@ Katacoda uses its own ingress to route external ports to the internal Kubernetes
 
 1. Ingress path can be tested by accessing proxy url with defined path:
 
-    https://[[HOST_SUBDOMAIN]]-30001-[[KATACODA_HOST]].environments.katacoda.com/ingress-shipping?itemId=ССС&type=regular
+    https://[[HOST_SUBDOMAIN]]-30001-[[KATACODA_HOST]].environments.katacoda.com/ingress-shipping?itemId=CCC&type=regular
   
   Note, that changing context path to anything other than `ingress-shipping` stops routing requests to the shipping service. This proves that requests are routed via Nginx load balances in contrast to Kubernetes service from the previous step  
 
