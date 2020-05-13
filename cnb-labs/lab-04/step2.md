@@ -10,10 +10,10 @@ We use simplified Katacoda environment without a Docker registry, so let's insta
 
 2. Let's tag our application Docker image, so it is associated with the new registry:
 
-   `docker tag lab-cnb/shipping-service-js localhost:5000:lab-cnb/shipping-service-js`{{execute}}
+   `docker tag lab-cnb/shipping-service localhost:5000/lab-cnb/shipping-service`{{execute}}
 
 3. Now we can push the Docker image to the registry
 
-    `docker push localhost:5000:lab-cnb/shipping-service-js`{{execute}}
+    `docker push localhost:5000/lab-cnb/shipping-service`{{execute}}
 
     After some loading, log should say something like `latest: digest: sha256:89fbdfc4bd21771aa9f18c836c598e631740c8dc33ede7116107ab46fefe1758 size: 3256`

@@ -47,7 +47,7 @@
     }
   },
   "environment": {
-    "uieditorpath": "/root/shipping-service-js",
+    "uieditorpath": "/root/shipping-service",
     "showide": true,
     "idePort": 23000,
     "uilayout": "terminal"

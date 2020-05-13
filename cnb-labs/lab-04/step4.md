@@ -2,23 +2,23 @@ Deployments are running inside kubernetes internal network and are not reachable
 
 1. To create Kubernetes service we need to provide service descriptor. Create file, named `service.yaml` with the following contents:
 
-    <pre class="file hljs yaml"  data-filename="service.yaml" data-target="replace">
-    apiVersion: v1
-      kind: Service
-      metadata:
-        name: shipping-service
-        labels:
-          app: shipping-service
-    spec:
-      type: NodePort
-      ports:
-        - name: app-port
-          targetPort: app-port
-          nodePort: 30000
-          port: 3000
-      selector:
-        app: shipping-service
-    </pre>
+<pre class="file hljs yaml"  data-filename="service.yaml" data-target="replace">
+apiVersion: v1
+  kind: Service
+  metadata:
+    name: shipping-service
+    labels:
+      app: shipping-service
+spec:
+  type: NodePort
+  ports:
+    - name: app-port
+      targetPort: app-port
+      nodePort: 30000
+      port: 3000
+  selector:
+    app: shipping-service
+</pre>
 
 1. Apply `service.yaml`{{open}} using the same `kubectl apply` command:
 
@@ -38,4 +38,4 @@ Deployments are running inside kubernetes internal network and are not reachable
 
     this is our assigned NodePort(`30000`), which is used to listen for requests from the outside. Of course, the exact port number will be different for each service
 
-1. Check the service using node port by navigating to the following URL: https://[[HOST_SUBDOMAIN]]-30000-[[KATACODA_HOST]].environments.katacoda.com/shipping?itemId=AAA&type=regular
+1. Check the service using node port by navigating to the following URL: https://[[HOST_SUBDOMAIN]]-30000-[[KATACODA_HOST]].environments.katacoda.com/shipping?itemId=AAA&type=regular. Note that the URL context path can be changed to anything matching `/*shipping` as per our `app.js`{{open}} file. This is because Kubernetes service use port based traffic forwarding.

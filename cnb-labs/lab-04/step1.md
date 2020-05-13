@@ -1,6 +1,6 @@
 Docker container is created from the application build outcome, using `Dockerfile` as image definition
 
-1. Create `Dockerfile` as per following definition:
+1. Switch to IDE tab and create `Dockerfile` as per following definition:
 
     <pre class="file hljs docker"  data-filename="Dockerfile" data-target="replace">
     FROM node:10
@@ -28,7 +28,7 @@ Docker container is created from the application build outcome, using `Dockerfil
 
 2. Build the image using created file:
 
-    `docker build -t lab-cnb/shipping-service-js shipping-service-js/.`{{execute}}
+    `docker build -t lab-cnb/shipping-service shipping-service/.`{{execute}}
 
     Note the dot at the end, it tells where to look for `Dockerfile` (current directory)
 
@@ -36,7 +36,7 @@ Docker container is created from the application build outcome, using `Dockerfil
 
     We can run the created docker image by using `docker run`:
 
-    `docker run --name shipping-service-js -t --rm -p 3001:3001 lab-cnb/shipping-service-js`{{execute}}
+    `docker run --name shipping-service -t --rm -p 3001:3001 lab-cnb/shipping-service`{{execute}}
 
    Return to the shell with `Ctrl+C`. The container is continuing to run in the background.
 
@@ -57,11 +57,11 @@ Docker container is created from the application build outcome, using `Dockerfil
 
     Examine your docker image to see low level info:
 
-    `docker image inspect lab-cnb/shipping-service-js`{{execute}}
+    `docker image inspect lab-cnb/shipping-service`{{execute}}
 
     View the history of what has happened to your image:
 
-    `docker history lab-cnb/shipping-service-js`{{execute}}
+    `docker history lab-cnb/shipping-service`{{execute}}
 
     View stats on running containers:
 
@@ -69,4 +69,4 @@ Docker container is created from the application build outcome, using `Dockerfil
 
     Before we move on, let's stop our running container:
 
-    `docker kill shipping-service-js`{{execute}}
+    `docker kill shipping-service`{{execute}}
