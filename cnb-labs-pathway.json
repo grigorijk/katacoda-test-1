@@ -6,8 +6,8 @@
             "title": "Developing a Microservice with TDD"
         },
         {
-            "course_id": "lab-03",
-            "title": "Developing a Microservice with TDD in Java"
+            "course_id": "lab-04",
+            "title": "Containerising Microservices to Kubernetes"
         }
     ]
 }
