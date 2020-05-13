@@ -31,7 +31,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "courseData": "run-init.sh"
     },
     "finish": {
       "text": "finish.md"
