@@ -1,22 +1,19 @@
-### 3.2 Push docker image to Docker Repository
+Our application's Docker image is currently available in our local machine only. To make it available for deployment outside of our environment it should be pushed to a Docker registry that acts as shared repository to get Docker images. 
 
-1. #### Login into Docker repository
+There are public and private Docker registries. The most known public registry is [Docker Hub](https://hub.docker.com). Private registries are used to keep Docker images with a limited access scope. Typically managed Kubernetes clusters has a private Docker registry with strict access control enabled.
 
-    Use the command:
+We use simplified Katacoda environment without a Docker registry, so let's install a simple one that is not secured and can not be accessed from outside
 
-    ```sh
-    ibmcloud cr login
-    ```
+1. Run the following docker command to run Docker registry container:
 
-    Successful login is marked by response `Login Succeeded`. Now you are authorised to perform operations with docker repository, like pushing the image.
+    `docker run -d -p 5000:5000 --restart always --name registry registry:2`{{execute}}
 
-2. #### Push Docker image
+2. Let's tag our application Docker image, so it is associated with the new registry:
 
-    ```sh
-    docker push uk.icr.io/lab-cnb/shipping-service-XX
-    ```
+   `docker tag lab-cnb/shipping-service-js localhost:5000:lab-cnb/shipping-service-js`{{execute}}
+
+3. Now we can push the Docker image to the registry
+
+    `docker push localhost:5000:lab-cnb/shipping-service-js`{{execute}}
 
     After some loading, log should say something like `latest: digest: sha256:89fbdfc4bd21771aa9f18c836c598e631740c8dc33ede7116107ab46fefe1758 size: 3256`
-
-    You can also navigate to the IBM console and view the registry at the following link (ensure you have selected the correct account) https://cloud.ibm.com/kubernetes/registry/main/private
-    

@@ -6,37 +6,34 @@ One of the main artefacts in Kubernetes is "Deployment". It is linked with docke
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-    labels:
+      labels:
         app: shipping-service
-    name: shipping-service
+      name: shipping-service
     spec:
-    replicas: 1
-    selector:
-        matchLabels:
-        app: shipping-service
-    template:
+      replicas: 1
+      template:
         metadata:
-        labels:
+          labels:
             app: shipping-service
         spec:
-        containers:
-        - image: localhost:5000/lab-cnb/shipping-service-js
+          containers:
+          - image: localhost:5000/lab-cnb/shipping-service
             name: shipping-service
             ports:
             - name: app-port
-            containerPort: 3001
+              containerPort: 3001
     </pre>
 
-    Important part here is the `image` part, which refers to the unique docker image name, which was built, run and pushed earlier. `containerPort` for should be `3001`
+    Important part here is the `image` part that refers to the unique docker image name in our local registry which was built, run and pushed earlier. `containerPort` for should be `3001`
 
 1. Apply this configuration using following command:
 
-    `kubectl apply -f deployment.yaml`{{execute}}
+    `kubectl apply -f shipping-service/deployment.yaml`{{execute}}
 
     The output should be similar to
 
     <pre class="file hljs shell">
-        deployment.extensions/shipping-service created
+    deployment.extensions/shipping-service created
     </pre>
 
 1. Try some `kubectl` commands to check newly created deployment:

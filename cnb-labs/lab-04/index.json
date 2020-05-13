@@ -50,8 +50,7 @@
     "uieditorpath": "/root/shipping-service-js",
     "showide": true,
     "idePort": 23000,
-    "uilayout": "terminal",
-    "dashboards": [{"name": "Application port", "port": 3001}]
+    "uilayout": "terminal"
   },
   "backend": {
     "imageid": "kubernetes"

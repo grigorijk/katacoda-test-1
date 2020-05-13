@@ -3,7 +3,7 @@ Docker container is created from the application build outcome, using `Dockerfil
 1. Create `Dockerfile` as per following definition:
 
     <pre class="file hljs docker"  data-filename="Dockerfile" data-target="replace">
-    FROM node:12
+    FROM node:10
 
     # Create app directory
     WORKDIR /usr/src/app/src
@@ -13,9 +13,8 @@ Docker container is created from the application build outcome, using `Dockerfil
     # where available (npm@5+)
     COPY package*.json ./
 
-    RUN npm install
-    # If you are building your code for production
-    # RUN npm install --only=production
+    # Building code for production
+    RUN npm install --only=production
     ENV PRODUCT_SERVICE_URL=v7a4m6m4.hostrycdn.com/product-service/products
     # Bundle app source
     RUN mkdir src
@@ -41,7 +40,7 @@ Docker container is created from the application build outcome, using `Dockerfil
 
    Return to the shell with `Ctrl+C`. The container is continuing to run in the background.
 
-    `curl 'localhost:3001/shipping?itemId=AAA&type=overnight'`{{execute}}
+    `curl 'localhost:3001/shipping?itemId=AAA&type=overnight'`{{execute interrupt}}
 
 4. Explore docker commands
 
