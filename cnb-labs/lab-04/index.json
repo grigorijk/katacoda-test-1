@@ -38,7 +38,10 @@
       "text": "finish.md"
     }
   },
-  "environment": {},
+  "environment": {
+    "uilayout": "editor-terminal-split",
+    "showdashboard": true
+  },
   "backend": {
     "imageid": "kubernetes"
   }
