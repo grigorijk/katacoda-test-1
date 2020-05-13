@@ -8,25 +8,25 @@ Katacoda uses its own ingress to route external ports to the internal Kubernetes
 
 1. Create yet another descriptor `ingress.yaml` to define the Ingress:
 
-<pre class="file hljs yaml"  data-filename="ingress.yaml" data-target="replace">
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: shipping-service-ingress
-  labels:
-    app: shipping-service
-spec:
-  rules:
-  - host: [[HOST_SUBDOMAIN]]-30001-[[KATACODA_HOST]].environments.katacoda.com
-    http:
-      paths:
-      - path: /ingress-shipping
-        backend:
-          serviceName: shipping-service-svc
-          servicePort: app-port
+  <pre class="file hljs yaml"  data-filename="ingress.yaml" data-target="replace">
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: shipping-service-ingress
+    labels:
+      app: shipping-service
+  spec:
+    rules:
+    - host: [[HOST_SUBDOMAIN]]-30001-[[KATACODA_HOST]].environments.katacoda.com
+      http:
+        paths:
+        - path: /ingress-shipping
+          backend:
+            serviceName: shipping-service
+            servicePort: app-port
   </pre>
 
-2. Apply the ingress descriptor with the following command:
+1. Apply the ingress descriptor with the following command:
 
   `kubectl apply -f shipping-service/ingress.yaml`{{execute}}
 
@@ -36,12 +36,12 @@ spec:
     ingress.extensions/shipping-service-ingress created
     </pre>
 
-3. Ingress path can be tested by accessing proxy url with defined path:
+1. Ingress path can be tested by accessing proxy url with defined path:
 
-    https://[[HOST_SUBDOMAIN]]-30001-[[KATACODA_HOST]].environments.katacoda.com/ingress-shipping?itemId=AAA&type=regular
+    https://[[HOST_SUBDOMAIN]]-30001-[[KATACODA_HOST]].environments.katacoda.com/ingress-shipping?itemId=ССС&type=regular
   
   Note, that changing context path to anything other than `ingress-shipping` stops routing requests to the shipping service. This proves that requests are routed via Nginx load balances in contrast to Kubernetes service from the previous step  
 
-4. Check details of ingress with the following command:
+1. Check details of ingress with the following command:
 
   `kubectl describe ingress shipping-service-ingress`{{execute}}

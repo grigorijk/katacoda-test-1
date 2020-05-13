@@ -8,11 +8,11 @@ We use simplified Katacoda environment without a Docker registry, so let's insta
 
     `docker run -d -p 5000:5000 --restart always --name registry registry:2`{{execute}}
 
-2. Let's tag our application Docker image, so it is associated with the new registry:
+1. Let's tag our application Docker image, so it is associated with the new registry:
 
    `docker tag lab-cnb/shipping-service localhost:5000/lab-cnb/shipping-service`{{execute}}
 
-3. Now we can push the Docker image to the registry
+1. Now we can push the Docker image to the registry
 
     `docker push localhost:5000/lab-cnb/shipping-service`{{execute}}
 
