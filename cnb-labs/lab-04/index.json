@@ -38,15 +38,11 @@
       "text": "finish.md"
     }
   },
-  "files": [
-    "app.js",
-    "index.js"
-  ],
   "environment": {
-    "uieditorpath": "/root/example",
+    "uieditorpath": "/root/shipping-service-js",
     "showide": true,
     "idePort": 23000,
-    "uilayout": "terminal"
+    "uilayout": "editor-terminal"
   },
   "backend": {
     "imageid": "ubuntu"
