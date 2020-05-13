@@ -38,11 +38,17 @@
       "text": "finish.md"
     }
   },
+  "files": [
+    "app.js",
+    "index.js"
+  ],
   "environment": {
-    "uilayout": "editor-terminal-split",
-    "showdashboard": true
+    "uieditorpath": "/root/example",
+    "showide": true,
+    "idePort": 23000,
+    "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "ubuntu"
   }
 }
