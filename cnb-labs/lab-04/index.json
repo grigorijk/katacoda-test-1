@@ -42,7 +42,7 @@
     "uieditorpath": "/root/shipping-service-js",
     "showide": true,
     "idePort": 23000,
-    "uilayout": "editor-terminal"
+    "uilayout": "terminal"
   },
   "backend": {
     "imageid": "ubuntu"
