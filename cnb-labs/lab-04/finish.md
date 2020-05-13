@@ -1,0 +1,1 @@
+Congratulations!!! Your application is now running as a Kubernetes service!

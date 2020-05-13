@@ -6,27 +6,27 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Build Docker image",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Push docker image to Docker Repository",
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Create Kubernetes deployment",
         "text": "step3.md"
       },
       {
-        "title": "Step 4",
+        "title": "Create Kubernetes service",
         "text": "step4.md"
       },
       {
-        "title": "Step 5",
+        "title": "Create Kubernetes ingress",
         "text": "step5.md"
       },
       {
-        "title": "Step 6",
+        "title": "TA DAAAA",
         "text": "step6.md"
       }
     ],
