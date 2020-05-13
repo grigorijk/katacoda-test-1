@@ -36,13 +36,22 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "nginx-ingress.yml",
+          "target": "~/"
+        }
+      ]
     }
   },
   "environment": {
     "uieditorpath": "/root/shipping-service-js",
     "showide": true,
     "idePort": 23000,
-    "uilayout": "terminal"
+    "uilayout": "terminal",
+    "dashboards": [{"name": "Application port", "port": 3001}]
   },
   "backend": {
     "imageid": "kubernetes"

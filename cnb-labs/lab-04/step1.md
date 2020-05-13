@@ -1,8 +1,8 @@
 Docker container is created from the application build outcome, using `Dockerfile` as image definition
 
-1. Create `shipping-service-js/Dockerfile`{{open}} as per following definition:
+1. Create `Dockerfile` as per following definition:
 
-    <pre class="file hljs docker"  data-filename="shipping-service-js/Dockerfile" data-target="replace">
+    <pre class="file hljs docker"  data-filename="Dockerfile" data-target="replace">
     FROM node:12
 
     # Create app directory
@@ -27,13 +27,13 @@ Docker container is created from the application build outcome, using `Dockerfil
 
     Have a look at [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/) and take a few minutes to understand the options used in our Dockerfile.
 
-1. Build the image using created file:
+2. Build the image using created file:
 
-    `docker build -t lab-cnb/shipping-service-js`{{execute}}
+    `docker build -t lab-cnb/shipping-service-js shipping-service-js/.`{{execute}}
 
-    Note the dot at the end, it tells where to look for `Dockerfile` (current directory), and do not forget to replace `X` with user number.
+    Note the dot at the end, it tells where to look for `Dockerfile` (current directory)
 
-2. Test docker image locally
+3. Test docker image locally
 
     We can run the created docker image by using `docker run`:
 
@@ -43,7 +43,7 @@ Docker container is created from the application build outcome, using `Dockerfil
 
     `curl 'localhost:3001/shipping?itemId=AAA&type=overnight'`{{execute}}
 
-3. Explore docker commands
+4. Explore docker commands
 
     There is a lot of Docker commands to monitor and manage docker containers and images. For details see
     [https://docs.docker.com/engine/reference/commandline/docker/](https://docs.docker.com/engine/reference/commandline/docker/)
@@ -62,11 +62,11 @@ Docker container is created from the application build outcome, using `Dockerfil
 
     View the history of what has happened to your image:
 
-    docker history `lab-cnb/shipping-service-js`{{execute}}
+    `docker history lab-cnb/shipping-service-js`{{execute}}
 
     View stats on running containers:
 
-    `docker stats`{{ubuntu}}
+    `docker stats`{{execute}}
 
     Before we move on, let's stop our running container:
 
