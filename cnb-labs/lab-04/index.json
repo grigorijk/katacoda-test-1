@@ -7,23 +7,23 @@
     "steps": [
       {
         "title": "Build Docker image",
-        "text": "step1.md"
+        "text": "1-build-image.md"
       },
       {
         "title": "Push docker image to Docker Repository",
-        "text": "step2.md"
+        "text": "2-push-to-registry.md"
       },
       {
         "title": "Create Kubernetes deployment",
-        "text": "step3.md"
+        "text": "3-k8s-deployment.md"
       },
       {
         "title": "Create Kubernetes service",
-        "text": "step4.md"
+        "text": "4-k8s-service.md"
       },
       {
         "title": "Create Kubernetes ingress",
-        "text": "step5.md"
+        "text": "5-k8s-ingress.md"
       },
       {
         "title": "TA DAAAA",
