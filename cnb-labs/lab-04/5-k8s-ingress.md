@@ -2,7 +2,7 @@
 
 Katacoda uses its own ingress to route external ports to the internal Kubernetes cluster. Therefore we will create a custom Nginx based proxy that will use ingress definitions to route requests to our application.
 
-1. Deploy ingress definition from prebuilt service descriptor `../nginx-ingress.yaml`{{open}}
+1. Deploy ingress definition from prebuilt service descriptor `cat nginx-ingress.yaml`{{execute}}
 
   `kubectl apply -f nginx-ingress.yaml`{{execute}}
 
