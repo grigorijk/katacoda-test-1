@@ -106,7 +106,7 @@ Our created and tested code is not a running microservice yet. To our functional
     app.listen(PORT, () => console.log(`ShippingService is listening on port ${PORT}`))
     </pre>
 
-6. `shipping-service/src/services/product-service.js`{{open}} should looks as follows:
+6. `shipping-service/src/services/product-service.js`{{open}} should look as follows:
     <pre class="file hljs js"  data-filename="shipping-service/src/services/product-service.js" data-target="replace">
     var axios = require('axios')
     module.exports = {
